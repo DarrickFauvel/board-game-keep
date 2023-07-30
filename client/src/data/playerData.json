@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "firstname": "Darrick",
+    "lastname": "Fauvel",
+    "wins": 0,
+    "losses": 0
+  },
+  {
+    "id": 2,
+    "firstname": "Lindsay",
+    "lastname": "Miller",
+    "wins": 0,
+    "losses": 0
+  },
+  {
+    "id": 3,
+    "firstname": "Linda",
+    "lastname": "Miller",
+    "wins": 0,
+    "losses": 0
+  }
+]
