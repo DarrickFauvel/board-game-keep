@@ -1,35 +1,36 @@
 const express = require("express")
-
 const router = express.Router()
+
+const resourceName = "score"
 
 router
   .get("/", (req, res) => {
-    res.send({
-      message: "GET all scores",
+    res.json({
+      message: `${req.method} all ${resourceName}s`,
     })
   })
 
   .get("/:id", (req, res) => {
-    res.send({
-      message: "GET a single score",
+    res.json({
+      message: `${req.method} ${resourceName} for id=${req.params.id}`,
     })
   })
 
   .post("/", (req, res) => {
-    res.send({
-      message: "POST a single score",
+    res.json({
+      message: `${req.method} new ${resourceName}`,
     })
   })
 
   .delete("/:id", (req, res) => {
-    res.send({
-      message: "DELETE a single score",
+    res.json({
+      message: `${req.method} ${resourceName} for id=${req.params.id}`,
     })
   })
 
   .patch("/:id", (req, res) => {
-    res.send({
-      message: "UPDATE a single score",
+    res.json({
+      message: `${req.method} ${resourceName} for id=${req.params.id}`,
     })
   })
 
