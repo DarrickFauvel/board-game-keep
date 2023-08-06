@@ -3,6 +3,8 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 
+const mongoose = require("mongoose")
+
 // Middleware
 const logger = require("./middleware/logger")
 app.use(logger)
@@ -17,6 +19,11 @@ app.use("/api/games", gameRoutes)
 
 const PORT = process.env.PORT
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}...`)
-})
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`App listening on port ${PORT}...`)
+    })
+  })
+  .catch((err) => console.log(err.message))
