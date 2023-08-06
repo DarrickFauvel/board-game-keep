@@ -3,6 +3,8 @@ const {
   createGame,
   getGames,
   getGame,
+  deleteGame,
+  updateGame,
 } = require("../controllers/gameController")
 const router = express.Router()
 
@@ -14,16 +16,8 @@ router.get("/:id", getGame)
 
 router.post("/", createGame)
 
-router.delete("/:id", (req, res) => {
-  res.json({
-    message: `${req.method} ${resourceName} for id=${req.params.id}`,
-  })
-})
+router.delete("/:id", deleteGame)
 
-router.patch("/:id", (req, res) => {
-  res.json({
-    message: `${req.method} ${resourceName} for id=${req.params.id}`,
-  })
-})
+router.patch("/:id", updateGame)
 
 module.exports = router
