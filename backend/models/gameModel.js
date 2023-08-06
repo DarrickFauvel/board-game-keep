@@ -1,4 +1,5 @@
-import mongoose, { Schema } from "mongoose"
+const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 
 const gameSchema = new Schema(
   {
@@ -14,7 +15,7 @@ const gameSchema = new Schema(
       type: String,
       required: true,
     },
-    notes: {
+    note: {
       type: String,
       required: false,
     },
@@ -22,4 +23,4 @@ const gameSchema = new Schema(
   { timestamps: true }
 )
 
-export default mongoose.model("Game", gameSchema)
+module.exports = mongoose.model("Game", gameSchema)

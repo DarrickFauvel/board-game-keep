@@ -1,37 +1,23 @@
 const express = require("express")
+const {
+  createGame,
+  getGames,
+  getGame,
+  deleteGame,
+  updateGame,
+} = require("../controllers/gameController")
 const router = express.Router()
 
 const resourceName = "game"
 
-router
-  .get("/", (req, res) => {
-    res.json({
-      message: `${req.method} all ${resourceName}s`,
-    })
-  })
+router.get("/", getGames)
 
-  .get("/:id", (req, res) => {
-    res.json({
-      message: `${req.method} ${resourceName} for id=${req.params.id}`,
-    })
-  })
+router.get("/:id", getGame)
 
-  .post("/", (req, res) => {
-    res.json({
-      message: `${req.method} new ${resourceName}`,
-    })
-  })
+router.post("/", createGame)
 
-  .delete("/:id", (req, res) => {
-    res.json({
-      message: `${req.method} ${resourceName} for id=${req.params.id}`,
-    })
-  })
+router.delete("/:id", deleteGame)
 
-  .patch("/:id", (req, res) => {
-    res.json({
-      message: `${req.method} ${resourceName} for id=${req.params.id}`,
-    })
-  })
+router.patch("/:id", updateGame)
 
 module.exports = router
