@@ -6,6 +6,7 @@ const app = express()
 const mongoose = require("mongoose")
 
 // Middleware
+app.use(express.json())
 const logger = require("./middleware/logger")
 app.use(logger)
 
