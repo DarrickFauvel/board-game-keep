@@ -21,7 +21,8 @@ const Home = () => {
     <div className="home">
       <h2>Home</h2>
       <div className="games">
-        {games && games.map((game) => <GameDetails game={game} />)}
+        {games &&
+          games.map((game) => <GameDetails game={game} key={game._id} />)}
       </div>
     </div>
   )
