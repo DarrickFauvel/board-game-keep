@@ -11,6 +11,9 @@ body {
   margin: 0;
   font-family: "Poppins";
 }
+img {
+  width: 100%;
+}
 header {
   background: #fff;
 }
