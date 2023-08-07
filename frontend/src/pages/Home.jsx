@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import GameDetails from "../components/GameDetails"
+import GameForm from "../components/GameForm"
 
 const Home = () => {
   const [games, setGames] = useState(null)
@@ -19,11 +20,11 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h2>Home</h2>
       <div className="games">
         {games &&
           games.map((game) => <GameDetails game={game} key={game._id} />)}
       </div>
+      <GameForm />
     </div>
   )
 }
