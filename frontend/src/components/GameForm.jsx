@@ -1,6 +1,9 @@
 import { useState } from "react"
+import { useGamesContext } from "../hooks/useGamesContext"
 
 const GameForm = () => {
+  const { dispatch } = useGamesContext()
+
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [image, setImage] = useState("")
@@ -36,6 +39,7 @@ const GameForm = () => {
       setNote("")
       setError(null)
       console.log("New game added.", json)
+      dispatch({ type: "CREATE_GAME", payload: json })
     }
   }
 

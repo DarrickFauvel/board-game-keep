@@ -1,17 +1,21 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import GameDetails from "../components/GameDetails"
 import GameForm from "../components/GameForm"
+import { useGamesContext } from "../hooks/useGamesContext"
 
 const Home = () => {
-  const [games, setGames] = useState(null)
+  const { games, dispatch } = useGamesContext()
 
   useEffect(() => {
     const fetchGames = async () => {
       const response = await fetch("http://localhost:3000/api/games")
-      const data = await response.json()
+      const json = await response.json()
 
       if (response.ok) {
-        setGames(data)
+        dispatch({
+          type: "SET_GAMES",
+          payload: json,
+        })
       }
     }
 
