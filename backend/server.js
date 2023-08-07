@@ -1,11 +1,13 @@
 require("dotenv").config()
 
 const express = require("express")
+const cors = require("cors")
 const app = express()
 
 const mongoose = require("mongoose")
 
 // Middleware
+app.use(cors())
 app.use(express.json())
 const logger = require("./middleware/logger")
 app.use(logger)
