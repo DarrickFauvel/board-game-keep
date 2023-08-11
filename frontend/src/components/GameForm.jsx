@@ -9,6 +9,7 @@ const GameForm = () => {
   const [image, setImage] = useState("")
   const [note, setNote] = useState("")
   const [error, setError] = useState(null)
+  const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -21,16 +22,16 @@ const GameForm = () => {
 
     const response = await fetch("/api/games", {
       method: "POST",
+      body: JSON.stringify(game),
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(game),
     })
-
     const json = await response.json()
 
     if (!response.ok) {
       setError(json.error)
+      setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
       setTitle("")
@@ -38,6 +39,7 @@ const GameForm = () => {
       setImage("")
       setNote("")
       setError(null)
+      setEmptyFields([])
       console.log("New game added.", json)
       dispatch({ type: "CREATE_GAME", payload: json })
     }
@@ -52,6 +54,7 @@ const GameForm = () => {
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
+        className={emptyFields.includes("title") ? "error" : ""}
       />
 
       <label htmlFor="">Game Description:</label>
@@ -59,6 +62,7 @@ const GameForm = () => {
         type="text"
         onChange={(e) => setDescription(e.target.value)}
         value={description}
+        className={emptyFields.includes("description") ? "error" : ""}
       />
 
       <label htmlFor="">Game Image:</label>
@@ -66,6 +70,7 @@ const GameForm = () => {
         type="text"
         onChange={(e) => setImage(e.target.value)}
         value={image}
+        className={emptyFields.includes("image") ? "error" : ""}
       />
 
       <label htmlFor="">Game Note:</label>

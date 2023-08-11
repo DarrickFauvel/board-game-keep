@@ -28,6 +28,23 @@ const getGame = async (req, res) => {
 const createGame = async (req, res) => {
   const { title, description, image, note } = req.body
 
+  let emptyFields = []
+
+  if (!title) {
+    emptyFields.push("title")
+  }
+  if (!description) {
+    emptyFields.push("description")
+  }
+  if (!image) {
+    emptyFields.push("image")
+  }
+  if (emptyFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "Please fill in all fields.", emptyFields })
+  }
+
   try {
     const game = await Game.create({ title, description, image, note })
     res.status(200).json(game)
