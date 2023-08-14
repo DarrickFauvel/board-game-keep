@@ -6,29 +6,35 @@
   --primary: #1aac83;
   --error: #e7195a;
 }
+
 body {
   background: #f1f1f1;
   margin: 0;
   font-family: "Poppins";
 }
+
 img {
   width: 100%;
 }
+
 header {
   background: #fff;
+
+  & .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & a {
+    color: #333;
+    text-decoration: none;
+  }
 }
-header .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-header a {
-  color: #333;
-  text-decoration: none;
-}
+
 .pages {
   max-width: 1400px;
   padding: 20px;
@@ -41,6 +47,7 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
+
 .game-details {
   background: #fff;
   border-radius: 4px;
@@ -48,26 +55,33 @@ header a {
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-}
-.game-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
-}
-.game-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.game-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
+
+  & h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: var(--primary);
+  }
+
+  & img {
+    max-width: 300px;
+  }
+
+  & p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+  }
+
+  & span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: #f1f1f1;
+    padding: 6px;
+    border-radius: 50%;
+    color: #333;
+  }
 }
 
 /* new game form */
@@ -75,6 +89,7 @@ label,
 input {
   display: block;
 }
+
 input {
   padding: 10px;
   margin-top: 10px;
@@ -84,6 +99,7 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 form button {
   background: var(--primary);
   border: 0;
@@ -93,6 +109,7 @@ form button {
   border-radius: 4px;
   cursor: pointer;
 }
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -101,6 +118,7 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
+
 input.error {
   border: 1px solid var(--error);
 }
