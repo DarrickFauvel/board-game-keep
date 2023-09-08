@@ -1,9 +1,9 @@
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
-import styles from "./logo-head.module.css";
+import styles from "./logo.module.css";
 
-const LogoHead = () => {
+const Logo = () => {
   return (
     <Link to="/" className={styles.wrapper}>
       <h1>Board Game Keep</h1>
@@ -12,4 +12,4 @@ const LogoHead = () => {
   );
 };
 
-export default LogoHead;
+export default Logo;
