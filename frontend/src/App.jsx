@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
-import Navbar from "./components/Navbar";
 import List from "./pages/List";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Header />
         <div className="pages">
           <Routes>
             <Route path="/add" element={<Add />} />

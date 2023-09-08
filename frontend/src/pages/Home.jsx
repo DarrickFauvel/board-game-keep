@@ -1,36 +1,29 @@
-import { useEffect } from "react"
-import GameDetails from "../components/GameDetails"
-import GameForm from "../components/GameForm"
-import { useGamesContext } from "../hooks/useGamesContext"
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const { games, dispatch } = useGamesContext()
-
-  useEffect(() => {
-    const fetchGames = async () => {
-      const response = await fetch("http://localhost:3000/api/games")
-      const json = await response.json()
-
-      if (response.ok) {
-        dispatch({
-          type: "SET_GAMES",
-          payload: json,
-        })
-      }
-    }
-
-    fetchGames()
-  }, [dispatch])
-
   return (
     <div className="home">
-      <div className="games">
-        {games &&
-          games.map((game) => <GameDetails game={game} key={game._id} />)}
-      </div>
-      <GameForm />
-    </div>
-  )
-}
+      <section id="recently-added">
+        <h3>Recently Added</h3>
+        <ul>
+          <li>game 1</li>
+          <li>game 2</li>
+          <li>game 3</li>
+          <li>etc...</li>
+        </ul>
+      </section>
 
-export default Home
+      <section id="recently-played">
+        <h3>Recently Played</h3>
+        <ul>
+          <li>game 1</li>
+          <li>game 2</li>
+          <li>game 3</li>
+          <li>etc...</li>
+        </ul>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
