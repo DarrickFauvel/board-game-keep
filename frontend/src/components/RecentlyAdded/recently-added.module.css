@@ -1,0 +1,13 @@
+.wrapper {
+  & ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 4em;
+  }
+
+  & img {
+    max-width: 8em;
+    max-height: 8em;
+  }
+}

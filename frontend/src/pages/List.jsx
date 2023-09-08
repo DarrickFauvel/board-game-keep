@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { Icon } from "@iconify/react";
 import { useEffect } from "react";
 import GameDetails from "../components/GameDetails";
 import { useGamesContext } from "../hooks/useGamesContext";

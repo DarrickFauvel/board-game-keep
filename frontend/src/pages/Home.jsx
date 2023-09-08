@@ -1,17 +1,9 @@
-import { Link } from "react-router-dom";
+import RecentlyAdded from "../components/RecentlyAdded";
 
 const Home = () => {
   return (
     <div className="home">
-      <section id="recently-added">
-        <h3>Recently Added</h3>
-        <ul>
-          <li>game 1</li>
-          <li>game 2</li>
-          <li>game 3</li>
-          <li>etc...</li>
-        </ul>
-      </section>
+      <RecentlyAdded />
 
       <section id="recently-played">
         <h3>Recently Played</h3>
