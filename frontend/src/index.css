@@ -17,6 +17,21 @@ img {
   width: 100%;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-1 {
+  gap: 0.5em;
+}
+.gap-2 {
+  gap: 1em;
+}
+
 header {
   background: #fff;
 
@@ -26,7 +41,7 @@ header {
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   & a {
@@ -43,9 +58,9 @@ header {
 
 /* homepage */
 .home {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  gap: 100px; */
 }
 
 .game-details {
