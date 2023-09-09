@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useGamesContext } from "../../hooks/useGamesContext";
 
 import styles from "./recently-added.module.css";
+import { Link } from "react-router-dom";
 
 const RecentlyAdded = () => {
   const { games, dispatch } = useGamesContext();
@@ -40,12 +41,14 @@ const RecentlyAdded = () => {
             .map((game) => {
               return (
                 <li key={game._id}>
-                  <div className="card">
-                    <div className="card-image">
-                      <img src={game.image} alt={game.title} />
+                  <Link to={`/view/${game._id}`}>
+                    <div className="card">
+                      <div className="card-image">
+                        <img src={game.image} alt={game.title} />
+                      </div>
+                      <div className="card-footer">{game.title}</div>
                     </div>
-                    <div className="card-footer">{game.title}</div>
-                  </div>
+                  </Link>
                 </li>
               );
             })}
