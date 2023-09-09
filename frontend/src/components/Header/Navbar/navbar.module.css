@@ -1,0 +1,18 @@
+.wrapper {
+  & ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  & a {
+    border-block-end: 3px solid transparent;
+    transition: 200ms ease-in;
+  }
+
+  & a:hover {
+    border-block-end: 3px solid;
+  }
+}
