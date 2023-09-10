@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 
+import styles from "./navbar.module.css";
+
 const Navbar = () => {
   return (
-    <nav>
+    <nav className={styles.wrapper}>
       <ul>
         <li>
-          <Link to="/list">list games</Link>
+          <Link to="/games">List games</Link>
         </li>
         <li>
-          <Link to="/add">add a game</Link>
+          <Link to="/new">Add a game</Link>
         </li>
       </ul>
     </nav>

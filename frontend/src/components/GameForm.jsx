@@ -1,24 +1,26 @@
-import { useState } from "react"
-import { useGamesContext } from "../hooks/useGamesContext"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useGamesContext } from "../hooks/useGamesContext";
 
 const GameForm = () => {
-  const { dispatch } = useGamesContext()
+  const { dispatch } = useGamesContext();
+  const navigate = useNavigate();
 
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
-  const [image, setImage] = useState("")
-  const [note, setNote] = useState("")
-  const [error, setError] = useState(null)
-  const [emptyFields, setEmptyFields] = useState([])
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const [note, setNote] = useState("");
+  const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const game = {
       title,
       description,
       image,
       note,
-    }
+    };
 
     const response = await fetch("/api/games", {
       method: "POST",
@@ -26,24 +28,25 @@ const GameForm = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    })
-    const json = await response.json()
+    });
+    const json = await response.json();
 
     if (!response.ok) {
-      setError(json.error)
-      setEmptyFields(json.emptyFields)
+      setError(json.error);
+      setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
-      setTitle("")
-      setDescription("")
-      setImage("")
-      setNote("")
-      setError(null)
-      setEmptyFields([])
-      console.log("New game added.", json)
-      dispatch({ type: "CREATE_GAME", payload: json })
+      setTitle("");
+      setDescription("");
+      setImage("");
+      setNote("");
+      setError(null);
+      setEmptyFields([]);
+      console.log("New game added.", json);
+      dispatch({ type: "CREATE_GAME", payload: json });
+      navigate("/games");
     }
-  }
+  };
 
   return (
     <form className="create" onSubmit={handleSubmit}>
@@ -83,7 +86,7 @@ const GameForm = () => {
       <button type="submit">Add Game</button>
       {error && <div className="error">{error}</div>}
     </form>
-  )
-}
+  );
+};
 
-export default GameForm
+export default GameForm;

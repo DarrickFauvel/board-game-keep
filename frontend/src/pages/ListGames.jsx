@@ -3,7 +3,7 @@ import GameDetails from "../components/GameDetails";
 import { useGamesContext } from "../hooks/useGamesContext";
 import BackNav from "../components/BackNav";
 
-const List = () => {
+const ListGames = () => {
   const { games, dispatch } = useGamesContext();
 
   useEffect(() => {
@@ -33,4 +33,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default ListGames;
