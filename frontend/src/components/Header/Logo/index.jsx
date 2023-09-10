@@ -6,8 +6,8 @@ import styles from "./logo.module.css";
 const Logo = () => {
   return (
     <Link to="/" className={styles.wrapper}>
-      <h1>Board Game Keep</h1>
       <Icon icon="logos:formkeep" style={{ fontSize: "48px" }} />
+      <h1>Board Game Keep</h1>
     </Link>
   );
 };
