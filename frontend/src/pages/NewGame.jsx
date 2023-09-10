@@ -1,7 +1,7 @@
 import BackNav from "../components/BackNav";
 import GameForm from "../components/GameForm";
 
-const Add = () => {
+const NewGame = () => {
   return (
     <div className="home">
       <BackNav />
@@ -10,4 +10,4 @@ const Add = () => {
   );
 };
 
-export default Add;
+export default NewGame;

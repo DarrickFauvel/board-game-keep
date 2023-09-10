@@ -1,24 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Add from "./pages/Add";
-import List from "./pages/List";
 import Header from "./components/Header";
-import View from "./pages/View";
+import NewGame from "./pages/NewGame";
+import ListGames from "./pages/ListGames";
+import GameDetail from "./pages/GameDetail";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <div className="pages">
-          <Routes>
-            <Route path="/add" element={<Add />} />
-            <Route path="/list" element={<List />} />
-            <Route path="/view/:id" element={<View />} />
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <Header />
+      <div className="pages">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/new" element={<NewGame />} />
+          <Route path="/games">
+            <Route index element={<ListGames />} />
+            <Route path=":id" element={<GameDetail />} />
+          </Route>
+        </Routes>
+      </div>
     </div>
   );
 }

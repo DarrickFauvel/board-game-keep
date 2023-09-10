@@ -41,7 +41,7 @@ const RecentlyAdded = () => {
             .map((game) => {
               return (
                 <li key={game._id}>
-                  <Link to={`/view/${game._id}`}>
+                  <Link to={`/games/${game._id}`} state={game}>
                     <div className="card">
                       <div className="card-image">
                         <img src={game.image} alt={game.title} />

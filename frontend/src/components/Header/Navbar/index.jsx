@@ -7,10 +7,10 @@ const Navbar = () => {
     <nav className={styles.wrapper}>
       <ul>
         <li>
-          <Link to="/list">List games</Link>
+          <Link to="/games">List games</Link>
         </li>
         <li>
-          <Link to="/add">Add a game</Link>
+          <Link to="/new">Add a game</Link>
         </li>
       </ul>
     </nav>
