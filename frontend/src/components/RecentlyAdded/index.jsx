@@ -39,15 +39,21 @@ const RecentlyAdded = () => {
             })
             .slice(0, 3)
             .map((game) => {
+              const gameImageUrl = `url('${game.image}')`;
+
               return (
                 <li key={game._id}>
                   <Link to={`/games/${game._id}`} state={game}>
-                    <div className="card">
-                      <div className="card-image">
-                        <img src={game.image} alt={game.title} />
+                    <article className={styles.card}>
+                      <div
+                        className={styles["card-image"]}
+                        style={{
+                          backgroundImage: gameImageUrl,
+                        }}>
+                        {/* <img src={game.image} alt={game.title} /> */}
                       </div>
-                      <div className="card-footer">{game.title}</div>
-                    </div>
+                      <div className={styles["card-footer"]}>{game.title}</div>
+                    </article>
                   </Link>
                 </li>
               );
